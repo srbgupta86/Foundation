@@ -1,0 +1,104 @@
+<project name="Build Script For Bootcamp" default="all" basedir=".">
+	
+    <property file="build.properties" />
+
+	<path id="project.class.path">
+		<fileset dir="${install.dir}/jar">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+
+	<target name="all"  depends="clean, build-jars, copy-files, deploy-extensions, build-ear" description="Executes all the targets" />
+	<!--clean, build-jars, copy-files, deploy-extensions, build-ear-->
+
+	<!--Cleans the custom code in install.dir-->
+	<target name="clean" description="Deletes directories" >
+		<!-- Delete directories -->
+		<delete dir="${install.dir}/extensions/global" />		
+	</target>
+
+	<target name="build-jars" description="Make Project Jar">
+		<!-- Compile the java source files -->
+        <delete dir="${source.dir}/dist/Foundation/classes" />
+        <mkdir dir="${source.dir}/dist/Foundation/classes" />
+
+		<javac classpathref="project.class.path" destdir="${source.dir}/dist/Foundation/classes" executable="${JAVA_HOME}/bin/javac" debug="on" debuglevel="lines,vars,source" failonerror="true">
+			<src path="${source.dir}/Foundation/src" />
+        </javac>
+
+		<!-- Makes the project jar file -->
+		<!--Create version file -->    		
+        <tstamp>
+            <format property="NOW" pattern="EEE, MMMM dd yyyy hh:mm aa z" />
+        </tstamp>    	
+
+		<echo file="${source.dir}/dist/version.txt">
+			Release Version: ${project.name} V ${release.version}
+			Release Date: ${NOW}
+		</echo>
+
+		<!--Copy the version.txt-->
+        <copy file="${source.dir}/dist/version.txt" todir="${source.dir}/dist/Foundation/classes" failonerror="true" />
+	
+        <jar destfile="${source.dir}/dist/Foundation/${project.name}.jar" basedir="${source.dir}/dist/Foundation/classes">
+            <manifest>
+                <section name="version-information">
+                    <attribute name="Version" value="${release.version}" />
+                    <attribute name="Date" value="${NOW}" />
+                </section>
+			</manifest>
+        </jar>
+   	</target>
+
+	<target name="copy-files" description="Deploys the project files in the relevant folders of MCF Installation">
+		<!--Copy extensions-->
+        <echo>Copy the project specific extensions to extensions folder of APP</echo>
+		<copy todir="${install.dir}/extensions/" overwrite="true" failonerror="true">
+			<fileset dir="${source.dir}/Foundation/extensions">
+				<exclude name="**/CVS" />
+			</fileset>
+		</copy>
+		
+		<!--Copy env specific properties file-->
+        <echo>Copy the env specific customer_overrides.properties to properties folder of APP</echo>
+		<copy tofile="${install.dir}/properties/customer_overrides.properties" overwrite="true" 
+			file="${source.dir}/Foundation/properties/customer_overrides.properties" failonerror="true" />
+	</target>
+
+	<target name="deploy-extensions" description="Deploys extensions on MCF app">		
+		<!--Register bootcamp.jar-->
+		<exec executable="${install.dir}/bin/install3rdParty.sh" failonerror="true">
+			  <arg value="custom"/>
+			  <arg value="1_1"/>
+			  <arg value="-j"/>
+			  <arg value="${source.dir}/dist/Foundation/${project.name}.jar"/>
+			  <arg value="-targetJVM"/>
+			  <arg value="EVERY"/>
+		</exec>					
+
+
+
+		<exec executable="${install.dir}/bin/deployer.sh" failonerror="true">
+			<arg value="-t"/>
+			<arg value="resourcejar"/>
+		</exec>
+
+		<exec executable="${install.dir}/bin/deployer.sh" failonerror="true">
+			<arg value="-t"/>
+			<arg value="entitydeployer"/>
+		</exec>
+
+	</target>
+
+	<target name="build-ear" description="Builds EAR file for deployment" depends="deploy-extensions">		
+		<exec executable="${install.dir}/bin/buildear.sh" failonerror="true">
+			<arg value="-Dappserver=weblogic"/>
+			<arg value="-Dwarfiles=smcfs,sma,sbc"/>
+			<arg value="-Dearfile=smcfs.ear"/>
+			<arg value="-Dnodocear=true"/>
+			<arg value="-Ddevmode=true"/>
+			<arg value="-Dnowebservice=true"/>
+			<arg value="create-ear"/>							  
+		</exec>
+	</target>
+</project>

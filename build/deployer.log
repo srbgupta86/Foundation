@@ -1,0 +1,231 @@
+
+skip-entity-config:
+
+-check-resjar-dirs:
+
+init-afc-version:
+
+copy-global-datatypes-file:
+
+resourcejargen:
+    [mkdir] Created dir: /u01/app/sterling/foundation/tmp/resourcetmp/resources
+    [mkdir] Created dir: /u01/app/sterling/foundation/tmp/resourcetmp/entities/upgradeextensions
+      [jar] Building jar: /u01/app/sterling/foundation/tmp/resources.jar
+     [java] [TIMING] - InteropBuildHelper completed: 0 seconds.
+   [delete] Deleting directory /u01/app/sterling/foundation/tmp/resourcetmp
+   [delete] Deleting: /u01/app/sterling/foundation/tmp/resources.jar
+
+-check-indexconfig-gen:
+
+generate-entity-indexconfig:
+
+resourcejar:
+
+entitydeployer:
+     [java] Setting base directory to /u01/app/sterling/foundation/repository/entitybuild
+     [java] Calling deployer...
+     [java] Build file = /u01/app/sterling/foundation/properties/entityDeployer.xml
+     [java] Target name = all
+     [java] 
+     [java] regenerateall:
+     [java] 
+     [java] clean:
+     [java] 
+     [java] override-sql-delimiter:
+     [java] 
+     [java] makedirs:
+     [java] 
+     [java] mergeEntities:
+     [java] 
+     [java] deleteUpgradeExtensions:
+     [java] 
+     [java] checkDatatypesExists:
+     [java] 
+     [java] createDatatypeRepository:
+     [java] 
+     [java] mergeDatatypes:
+     [java] 
+     [java] checkHotspotExcludesExists:
+     [java] 
+     [java] createHotspotExcludesRepository:
+     [java] 
+     [java] doMergeHotspotExcludes:
+     [java] 
+     [java] mergeHotspotExcludes:
+     [java] 
+     [java] override-schema:
+     [java] 
+     [java] override-oracle-useblob:
+     [java] 
+     [java] multibyte-support:
+     [java] 
+     [java] oracle-textsearch-context:
+     [java] 
+     [java] oracle-nls-length-semantics:
+     [java] 
+     [java] suppressed-indexes:
+     [java] 
+     [java] dbverify:
+     [java] dir.properties=/u01/app/sterling/foundation/properties
+     [java] dir.install=/u01/app/sterling/foundation
+     [java] sandbox.OS400=null
+     [java] sandbox.INSTALL_DIR=/u01/app/sterling/foundation
+     [java] sysproperty.key1=null
+     [java] sysproperty.key2=null
+     [java] sysproperty.key3=null
+     [java] sysproperty.key4=null
+     [java] sysproperty.key5=null
+     [java] sysproperty.value1=null
+     [java] sysproperty.value2=null
+     [java] sysproperty.value3=null
+     [java] sysproperty.value4=null
+     [java] sysproperty.value5=null
+     [java] multibyte=false
+     [java] log.ddl=null
+     [java] 
+     [java] backup-scripts:
+     [java]       [zip] Building zip: /u01/app/sterling/foundation/repository/scripts/backups/EFrameSql_201609082312.zip
+     [java] 
+     [java] makedirs:
+     [java] 
+     [java] mergeEntities:
+     [java] 
+     [java] deleteUpgradeExtensions:
+     [java] 
+     [java] checkDatatypesExists:
+     [java] 
+     [java] createDatatypeRepository:
+     [java] 
+     [java] mergeDatatypes:
+     [java] 
+     [java] checkHotspotExcludesExists:
+     [java] 
+     [java] createHotspotExcludesRepository:
+     [java] 
+     [java] doMergeHotspotExcludes:
+     [java] 
+     [java] mergeHotspotExcludes:
+     [java] 
+     [java] override-schema:
+     [java] 
+     [java] override-oracle-useblob:
+     [java] 
+     [java] multibyte-support:
+     [java] 
+     [java] oracle-textsearch-context:
+     [java] 
+     [java] oracle-nls-length-semantics:
+     [java] 
+     [java] schema-synchronizer:
+     [java]      [java] Thu Sep 08 23:12:56 UTC 2016 :: ...Reading entity repository into memory from /u01/app/sterling/foundation/repository/entity...Thu Sep 08 23:12:59 UTC 2016 :: ...Initializing connection to database.
+     [java]      [java] ...took 3,676 milliseconds
+     [java]      [java] 	User:  sterling
+     [java]      [java] 	Driver:  oracle.jdbc.OracleDriver
+     [java]      [java] 	URL:  jdbc:oracle:thin:@localhost:1521:xe
+     [java]      [java] Thu Sep 08 23:13:00 UTC 2016 :: 	Database Product Name: Oracle
+     [java]      [java] Thu Sep 08 23:13:00 UTC 2016 :: 	Database Product Version: Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+     [java]      [java] Thu Sep 08 23:13:00 UTC 2016 :: 	Driver Name: Oracle JDBC driver
+     [java]      [java] Thu Sep 08 23:13:00 UTC 2016 :: 	Driver Version: 11.2.0.2.0
+     [java]      [java] Thu Sep 08 23:13:00 UTC 2016 :: ...Getting metadata from database. This is time consuming. Please wait...
+     [java]      [java] Thu Sep 08 23:13:16 UTC 2016 :: ...Getting metadata took 16093 milliseconds
+     [java]      [java] Thu Sep 08 23:13:17 UTC 2016 :: ...Generating DDL...
+     [java]      [java] ...took 12,113 milliseconds
+     [java] 
+     [java] populate-colony-pool-tables:
+     [java] 
+     [java] deleteUpgradeExtensions:
+     [java] 
+     [java] deleteUpgradeExtensions:
+     [java] 
+     [java] overrideErrorLevelCheck:
+     [java] 
+     [java] overrideErrorLevel:
+     [java] 
+     [java] overrideErrorLevelMySQL:
+     [java] 
+     [java] applySqlFiles:
+     [java] default.sql.errorlevel=abort
+     [java] Should Execute: true
+     [java] [saneSqlExec] Executing resource: /u01/app/sterling/foundation/repository/scripts/EFrame_TextIndexDrops.sql
+     [java] [saneSqlExec] 0 of 0 SQL statements executed successfully
+     [java] Should Execute: true
+     [java] [saneSqlExec] Executing resource: /u01/app/sterling/foundation/repository/scripts/EFrame_IndexDrops.sql
+     [java] [saneSqlExec] 0 of 0 SQL statements executed successfully
+     [java] Should Execute: true
+     [java] [saneSqlExec] Executing resource: /u01/app/sterling/foundation/repository/scripts/EFrame_TableChanges.sql
+     [java] [saneSqlExec] 2 of 2 SQL statements executed successfully
+     [java] Should Execute: true
+     [java] [saneSqlExec] Executing resource: /u01/app/sterling/foundation/repository/scripts/EFrame_IndexAdds.sql
+     [java] [saneSqlExec] 0 of 0 SQL statements executed successfully
+     [java] Should Execute: true
+     [java] [saneSqlExec] Executing resource: /u01/app/sterling/foundation/repository/scripts/EFrame_TextIndexAdds.sql
+     [java] [saneSqlExec] 0 of 0 SQL statements executed successfully
+     [java] Should Execute: true
+     [java] [saneSqlExec] Executing resource: /u01/app/sterling/foundation/repository/scripts/EFrame_Sequence.sql
+     [java] [saneSqlExec] 0 of 0 SQL statements executed successfully
+     [java] Should Execute: true
+     [java] [saneSqlExec] Executing resource: /u01/app/sterling/foundation/repository/scripts/EFrame_TextIndexModify.sql
+     [java] [saneSqlExec] 0 of 0 SQL statements executed successfully
+     [java] Should Execute: true
+     [java] [saneSqlExec] Executing resource: /u01/app/sterling/foundation/repository/scripts/EFrame_TextIndexUpdates.sql
+     [java] [saneSqlExec] 0 of 0 SQL statements executed successfully
+     [java] Should Execute: true
+     [java] [saneSqlExec] Skipping file: EFrame_TextIndexUpgrade.sql
+     [java] Should Execute: true
+     [java] [saneSqlExec] Skipping file: EFrame_Static.sql
+     [java] 
+     [java] dbclassgen.install:
+     [java] 
+     [java] mergeEntities:
+     [java] 
+     [java] deleteUpgradeExtensions:
+     [java]   [AFCecho] AFC000007:  Generating install classes, please wait...
+     [java]      [java] Generating SearchIndexTemplate for Shipment
+     [java]      [java] Generating SearchIndexTemplate for Order
+     [java]      [java] [TIMING] - EntityGenerator completed: 15 seconds.
+     [java] 
+     [java] deleteUpgradeExtensions:
+     [java] 
+     [java] dbclassgen.build:
+     [java] 
+     [java] checkentitybeans:
+     [java] 
+     [java] handleentitybeans:
+     [java] 
+     [java] dbclassgen:
+     [java] 
+     [java] build:
+     [java]     [javac] /u01/app/sterling/foundation/properties/entityDeployer.xml:759: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+     [java]     [javac] /u01/app/sterling/foundation/properties/entityDeployer.xml:772: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+     [java]     [javac] Compiling 1861 source files to /u01/app/sterling/foundation/repository/entitybuild/classes
+     [java] 
+     [java] jar:
+     [java]      [copy] Copying 855 files to /u01/app/sterling/foundation/repository/entitybuild/classes/com/yantra/shared/dbclasses
+     [java]       [jar] Building jar: /u01/app/sterling/foundation/repository/entitybuild/entities.jar
+     [java] 
+     [java] init-afc-version:
+     [java] 
+     [java] -add3dparty:
+     [java]      [java] [TIMING] - InteropBuildHelper completed: 0 seconds.
+     [java] 
+     [java] all:
+
+-check-resjar-dirs:
+
+init-afc-version:
+
+copy-global-datatypes-file:
+
+resourcejargen:
+    [mkdir] Created dir: /u01/app/sterling/foundation/tmp/resourcetmp/resources
+    [mkdir] Created dir: /u01/app/sterling/foundation/tmp/resourcetmp/entities/upgradeextensions
+      [jar] Building jar: /u01/app/sterling/foundation/tmp/resources.jar
+     [java] [TIMING] - InteropBuildHelper completed: 0 seconds.
+   [delete] Deleting directory /u01/app/sterling/foundation/tmp/resourcetmp
+   [delete] Deleting: /u01/app/sterling/foundation/tmp/resources.jar
+
+-check-indexconfig-gen:
+
+generate-entity-indexconfig:
+
+resourcejar:
